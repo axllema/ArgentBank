@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'; 
+import { Link } from "react-router-dom"
 import Header from '../components/header';
 import Banner from '../components/banner';
 import chatIcon from '../../back/designs/img/icon-chat.png';
