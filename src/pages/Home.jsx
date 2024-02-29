@@ -5,7 +5,8 @@ import chatIcon from '../../back/designs/img/icon-chat.png';
 import moneyIcon from '../../back/designs/img/icon-money.png';
 import securityIcon from '../../back/designs/img/icon-security.png';
 import Footer from '../components/footer';
-// import '../scss/style.scss'
+import '../scss/pages/_home.scss'
+import '../scss/style.scss'
 
 function Home() {
     return (
@@ -13,17 +14,7 @@ function Home() {
             <Header/>
             <Banner/>
             <div>
-                <div className="message">
-                    <section className="message_content">
-                        <p className="message_content_text">No fees.</p>
-                        <p className="message_content_text">No minimum deposit.</p>
-                        <p className="message_content_text">High interest rates.</p>
-                        <p className="message_content_text">Open a savings account with Argent Bank today!</p>
-                    </section>
-                </div>
-
                 <section className="features">
-
                     <div className="feature-item">
                         <img src={chatIcon} alt="chat icon" className="feature-icon" />
                         <h3 className="feature-item-title">You are our #1 priority</h3>
@@ -41,7 +32,6 @@ function Home() {
                         <h3 className="feature-item-title">Security you can trust</h3>
                         <p>We use top of the line encryption to make sure your data and money is always safe.</p>
                     </div>
-
                 </section>
             </div>
             <Footer/>
