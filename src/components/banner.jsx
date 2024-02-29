@@ -1,11 +1,15 @@
 import * as React from 'react';
-import banner_img from '../../back/designs/img/bank-tree.jpeg';
+import bannerImg from '../../back/designs/img/bank-tree.jpeg';
 import '../scss/components/_banner.scss';
 import '../scss/style.scss'
 
 function Banner() {
+    const headerStyle = {
+        backgroundImage: `url(${bannerImg})`,
+        backgroundSize: 'cover', // Pour assurer que l'image couvre toute la zone de l'en-tête
+    };
     return (
-        <div className="hero">
+        <div className="hero" style={headerStyle}>
         {/* <img src={banner_img} alt="banner image" /> */}
         <section className="hero-content">
             <h2 className="sr-only">Promoted Content</h2>
