@@ -1,11 +1,11 @@
 .main {
     display: flex;
     flex: 1;
+    padding-bottom: 120px;
 }
 
 .bg-dark {
 background-color: #12002b;
-flex: 1;
 }
 
 form {
@@ -19,6 +19,7 @@ width: 100%;
 padding: 8px;
 font-size: 1.1rem;
 font-weight: bold;
+text-decoration: underline;
 margin-top: 1rem;
 border-color: #00bc77;
 background-color: #00bc77;
@@ -40,19 +41,20 @@ width: 30px;
 
 .input-remember {
 display: flex;
-.label {
-    margin-left: 0.25rem;
-}
+
+    .label {
+        margin-left: 0.25rem;
+    }
 }
 
 .input-wrapper {
 display: flex;
 flex-direction: column;
-text-align: left;
 margin-bottom: 1rem;
 
-    .label {
+    &-label {
         font-weight: bold;
+        text-align: left;
     }
     .input {
         padding: 5px;
