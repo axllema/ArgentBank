@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Error from './pages/Error';
-// import About from './pages/About';
-// import './scss/style.scss';
+import UserProfile from './pages/UserProfile';
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -16,6 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path="/login" element={<Login />} />
                 <Route path="/error" element={<Error />} />
                 <Route path="*" element={<Error />} />
+                <Route path="/profile" element={<UserProfile />} />
             </Routes>
         </Router>
     </React.StrictMode>,
