@@ -24,6 +24,7 @@ function UserProfile() {
                         <button className="transaction-button">View transactions</button>
                     </div>
                 </section>
+                
                 <section className="account">
                     <div className="account-content-wrapper">
                         <h3 className="account-title">Argent Bank Savings (x6712)</h3>
