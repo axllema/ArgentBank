@@ -8,16 +8,16 @@ import '../scss/pages/_login.scss';
 
 function Login() {
     return (
-        <main>
+        <div>
             <Header/>
-            <div>
+            <div className="test">
             <main className="main bg-dark">
                 <section className="sign-in-content">
                 <i><img src={userIcon} className="sign-in-icon" alt="sign in icon" /></i>
                 <h1>Sign In</h1>
                 <form>
                     <div className="input-wrapper">
-                    <label htmlFor="username">Username</label>
+                    <label htmlFor="username" className="input-wrapper-label">Username</label>
                     <input
                         type="text"
                         id="username"
@@ -25,7 +25,7 @@ function Login() {
                     />
                     </div>
                     <div className="input-wrapper">
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password" className="input-wrapper-label">Password</label>
                     <input
                         type="password"
                         id="password"
@@ -47,7 +47,7 @@ function Login() {
             </main>
             <Footer />
             </div>
-        </main>
+        </div>
         );
     }
     
