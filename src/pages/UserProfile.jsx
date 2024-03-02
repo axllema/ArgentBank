@@ -13,6 +13,42 @@ function UserProfile() {
             <main className="main bg-dark container">
             <UserHeader/>
                 <button className="edit-button">Edit Name</button>
+
+            <form className="user-profile-form">
+                <div className="info-left">
+                    <label htmlFor="username"> Username:</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                        />
+
+                    <label htmlFor="firstName"> First name:</label>
+                        <input
+                            type="text"
+                            id="firstName"
+                            name="firstName"
+                        />
+                </div>
+
+                <div className="info-right">
+                    <label htmlFor="lastName"> Last name:</label>
+                        <input
+                            type="text"
+                            id="lastName"
+                            name="lastName"
+                        />
+                </div>
+
+                <button>
+                    Save
+                </button>
+
+                <button>
+                    Cancel
+                </button>
+            </form>
+
                 <h2 className="sr-only">Accounts</h2>
                 <section className="account">
                     <div className="account-content-wrapper">
