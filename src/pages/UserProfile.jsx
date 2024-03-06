@@ -6,7 +6,12 @@ import Footer from '../components/footer';
 import '../scss/pages/_userProfile.scss'
 import '../scss/style.scss'
 
+import { useSelector } from 'react-redux';
+
 function UserProfile() {
+
+    const user = useSelector(state => state.auth.user);
+
     return (
         <div>
             <Header/>
