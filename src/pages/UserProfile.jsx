@@ -16,7 +16,6 @@ function UserProfile() {
 
     useEffect(() => {
         if (token) {
-            console.log('jwtToken :', token);
             setIsLoggedIn(!!token);
         }
     }, [token]);

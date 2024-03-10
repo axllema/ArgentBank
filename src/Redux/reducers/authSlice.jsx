@@ -8,9 +8,9 @@ const checkToken = () => {
 
     // définition de l'état initial de l'authentification
     const initialState = {
-    token: checkToken(), // initialise le token avec valeur checkToken()
-    isAuthenticated: false, // initialise l'état par défaut (false : pas authentifié)
-    }
+        token: null,
+        isAuthenticated: false,
+    };
 
     const authSlice = createSlice({
     name: "auth",
@@ -22,7 +22,7 @@ const checkToken = () => {
             state.token = action.payload.token,
             console.log("authSlice state.token : ", state.token),
             state.isAuthenticated = true,
-            localStorage.getItem("localStorage authToken", state.token)
+            localStorage.setItem("authToken", state.token)
             // localStorage.setItem("authToken", state.token) ?
         },
 

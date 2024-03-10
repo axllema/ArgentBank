@@ -35,20 +35,23 @@ export const loginUser = (credentials) => async (dispatch) => {
         });
 
         if (response.status === 200) {
-            const token = responseData.body.token;
-            localStorage.setItem("authToken", token);
-            dispatch(loginSuccess());
-        } else {
-            dispatch({ type: 'LOGIN_FAILURE', payload: { message: response.statusText, user: null } });
+            const token = response.data.token;
+
+            // stocker le token dans le localStorage
+            localStorage.setItem('jwtToken', token);
+
+            // dispatcher le token à votre store Redux
+            dispatch({ type: 'LOGIN_SUCCESS', payload: token });
         }
-    } catch {
-        dispatch({ type: 'LOGIN_FAILURE', payload: { message: "An error as occured.", user: null } });
+    } catch (error) {
+        // Gérer les erreurs
+        dispatch({ type: 'LOGIN_FAILURE', payload: error.message });
     }
 };
 
 export const logoutUser = () => async (dispatch) => {
     try {
-        localStorage.removeItem("jwtToken");
+        localStorage.removeItem("authToken");
         dispatch(logoutSuccess());
     } catch (err) {
         alert("problème lors de la déconnexion");

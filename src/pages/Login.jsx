@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Header from '../components/header.jsx';
+import LoginForm from '../components/loginForm.jsx';
 import userIcon from '../../back/designs/img/user-icon.png';
 import Footer from '../components/footer.jsx';
 import axios from 'axios';
@@ -61,48 +62,18 @@ function Login() {
 
     return (
         <div>
-            <Header/> // Affichage du composant Header
+            <Header/>
             <div className="test">
             <main className="main bg-dark">
             <section className="sign-in-content">
                 <i><img src={userIcon} className="sign-in-icon" alt="sign in icon" /></i>
-                <h1>Sign In</h1> // Titre de la page
-                <form onSubmit={handleSubmit}>
-                // Lorsque le formulaire est soumis, la fonction handleSubmit est appelée
-                    {errorMessage && <p className="error-login">{errorMessage}</p>}
-                    <div className="input-wrapper">
-                    <label htmlFor="username" className="input-wrapper-label">Username</label> 
-                    <input
-                        type="text"
-                        id="email"
-                        name="email"
-                        autoComplete="email"
-                        onChange={(e) => setCredentials({ ...credentials, email: e.target.value })} 
-                        // lorsque la valeur du champ d'entrée change, l'état des identifiants est mis à jour
-                    />
-                    </div>
-                    <div className="input-wrapper">
-                    <label htmlFor="password" className="input-wrapper-label">Password</label> 
-                    <input
-                        type="password"
-                        id="password"
-                        name="password" 
-                        autoComplete="current-password"
-                        onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
-                        // lorsque la valeur du champ d'entrée change, l'état des identifiants est mis à jour
-                    />
-                    </div>
-                    <div className="input-remember">
-                    <input type="checkbox" id="remember-me" />
-                    <label htmlFor="remember-me">Remember me</label>
-                    </div>
-                    <button
-                        type="submit"
-                        className="sign-in-button"
-                    >
-                        Sign In
-                    </button>
-                </form>
+                <h1>Sign In</h1>
+                <LoginForm 
+                    handleSubmit={handleSubmit} 
+                    errorMessage={errorMessage} 
+                    setCredentials={setCredentials} 
+                    credentials={credentials} 
+                />
                 </section>
             </main>
             <Footer />
