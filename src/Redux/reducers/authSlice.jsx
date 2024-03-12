@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
 
+
 // vérifie si un token d'authentification est déjà présent dans le localStorage
 const checkToken = () => {
-    console.log("checkToken authSlice : ", localStorage.getItem("authToken"))
     return localStorage.getItem("authToken") || null
     }
 
@@ -10,6 +10,12 @@ const checkToken = () => {
     const initialState = {
         token: null,
         isAuthenticated: false,
+        user: null,
+        error: null,
+        firstName: null,
+        lastName: null,
+        userName: null,
+        email: null
     };
 
     const authSlice = createSlice({
@@ -20,10 +26,8 @@ const checkToken = () => {
         // action pour gérer la connexion réussie de l'utilisateur
         login(state, action) {
             state.token = action.payload.token,
-            console.log("authSlice state.token : ", state.token),
             state.isAuthenticated = true,
             localStorage.setItem("authToken", state.token)
-            // localStorage.setItem("authToken", state.token) ?
         },
 
         // action pour gérer l'échec de la connexion
@@ -41,17 +45,33 @@ const checkToken = () => {
             localStorage.removeItem("authToken")
         },
 
-         // gestion de la réussite de l'obtention de l'utilisateur
+        // gestion de la réussite de l'obtention de l'utilisateur
+        getUser(state, action) {
+        state.user = {
+            ...state.user,
+            firstName: action.payload.firstName,
+            lastName: action.payload.lastName,
+            userName: action.payload.userName,
+            email: action.payload.email,
+        };
+        state.error = null;
+        },
         getUserSuccess(state, action) {
-            state.user = action.payload,
-            state.error = null
+            state.user = action.payload;
+            state.error = null;
         },
-        // gestion de l'échec de l'obtention de l'utilisateur
         getUserFailure(state, action) {
-            state.error = action.payload
+            state.error = action.payload;
         },
+    updateUserSuccess(state, action) {
+        state.user = action.payload;
+        state.error = null;
     },
+    updateUserFailure(state, action) {
+        state.error = action.payload;
+    },
+},
 })
 
-export const { login, logout, getUserSuccess, getUserFailure } = authSlice.actions
+export const { login, logout, getUser, getUserSuccess, getUserFailure, updateUserSuccess,  updateUserFailure } = authSlice.actions;
 export default authSlice.reducer

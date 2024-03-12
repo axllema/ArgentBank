@@ -46,3 +46,16 @@
         }
     }
 }
+
+.main-nav-items{
+    display: flex;
+    flex-direction: row;
+    gap: 1050px;
+}
+
+.main-nav-links{
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    align-items: center;
+}

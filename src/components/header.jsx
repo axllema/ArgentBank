@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import logo from '../../back/designs/img/argentBankLogo.png';
 import userIcon from '../../back/designs/img/user-icon.png';
@@ -10,9 +10,9 @@ import { login } from '../Redux/reducers/authSlice.jsx'
 import { logout } from '../Redux/reducers/authSlice.jsx'
 
 function Header() {
-    const user = useSelector((state) => state.auth.isAuthenticated);
     const dispatch = useDispatch();
-    const userProfile = useSelector((state) => state.user);
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+    const userProfile = useSelector((state) => state.auth.user);
 
     const userLogout = () => {
         dispatch(logout())
@@ -25,31 +25,41 @@ function Header() {
         }
     }, [dispatch]);
 
+    useEffect(() => {
+        const token = localStorage.getItem("authToken");
+        if (token) {
+            dispatch(login({ token }));
+        }
+    }, [dispatch]);
+    
     return (
         <header>
             <nav className="main-nav">
-            <Link to="/" className="main-nav-logo"> 
-                <img alt="logo d'ArgentBank" src={logo} className="main-nav-logo-image"/>
-                <h1 className="sr-only">Argent Bank</h1>
-            </Link>
+                <div className="main-nav-items">
+                    <Link to="/" className="main-nav-logo"> 
+                        <img alt="logo d'ArgentBank" src={logo} className="main-nav-logo-image"/>
+                        <h1 className="sr-only">Argent Bank</h1>
+                    </Link>
 
 
-            <nav>
-            {user ? (
-        <>
-            <Link to="/User" className="link">
-                <img src={userIcon} alt="User Icon" className="main-nav-item-user_circle"/>
-                {userProfile && (userProfile.userName ? userProfile.userName : userProfile.firstName)}
-            </Link>
-            <Link to="/" onClick={userLogout} className="link">
-                <img src={signOutIcon} alt="Sign Out Icon" className="main-nav-item-user_circle" />Sign Out
-            </Link>
-        </>
-    ) : (
-        <Link to="/login" className="link">Sign In</Link>
-    )}
-            </nav>
-            </nav>
+                    <div className="main-nav-links">
+                        {isAuthenticated && userProfile ? (
+                    <>
+                        <Link to="/User" className="link">
+                            <img src={userIcon} alt="User Icon" className="main-nav-item-user_circle"/>
+                            {userProfile.body && (userProfile.body.userName ? userProfile.body.userName : `${userProfile.body.firstName} ${userProfile.body.lastName}`)}          
+                        </Link>
+
+                        <Link to="/" onClick={userLogout} className="link">
+                            <img src={signOutIcon} alt="Sign Out Icon" className="main-nav-item-user_circle" />Sign Out
+                        </Link>
+                    </>
+                    ) : (
+                        <Link to="/login" className="link">Sign In</Link>
+                    )}
+                </div>
+            </div>
+        </nav>
         </header>
     );
 }

@@ -21,7 +21,7 @@ function Main() {
 
     // utilisation du hook useEffect pour récupérer le token du localStorage et le dispatcher à l'action login lorsque le composant est monté
     useEffect(() => {
-        const token = localStorage.getItem('authToken');
+        const token = localStorage.getItem("authToken");
         if (token) {
             dispatch(login({ token }));
         }

@@ -1,31 +1,52 @@
 import React, { useState, useEffect } from 'react'; 
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import Header from '../components/header.jsx';
-import UserHeader from '../components/userheader';
+// import UserHeader from '../components/userheader';
 import Footer from '../components/footer';
 import '../scss/pages/_userProfile.scss'
 import '../scss/style.scss'
 
-import { useSelector } from 'react-redux';
-import { selectToken } from '../Redux/selectors/authSelectors.jsx';
+import { useDispatch, useSelector } from 'react-redux';
+// import { selectToken } from '../Redux/selectors/authSelectors.jsx';
+import { getUser } from '../Redux/actions/authActions'; // Import de l'action getUser
+
 
 function UserProfile() {
-    const token = useSelector(selectToken);
+    const dispatch = useDispatch();
+    const token = useSelector(state => state.auth.token);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const user = useSelector(state => state.auth.user); // accéder à l'état user dans le store Redux
+    
+     // appel de l'action getUser dès que le composant est monté
+        useEffect(() => {
+        dispatch(getUser());
+    }, [dispatch]);
 
+    // mettre à jour l'état local lorsque l'utilisateur est connecté
+    useEffect(() => {
+        if (user) {
+            setIsLoggedIn(true);
+        }
+    }, [user]);
 
     useEffect(() => {
         if (token) {
             setIsLoggedIn(!!token);
         }
-    }, [token]);
+    }, [token, dispatch]);
 
+    
     return (
         <div>
             <Header/>
             <main className="main bg-dark container">
-            {isLoggedIn && <h1> ok test test! à supprimer après </h1>}
-            <UserHeader/>
+            <h1 className="profileWelcome"> 
+                {isLoggedIn && user 
+                    ? <>Welcome back, <br/> {user.body.firstName} {user.body.lastName}!</>
+                    : 'Welcome!'
+                }
+            </h1>
+           {/* <UserHeader/> */}
                 <button className="edit-button">Edit Name</button>
                 <h2 className="sr-only">Accounts</h2>
                 <section className="account">
