@@ -127,7 +127,12 @@
 
 
 input#firstName,
-input#lastName{
+input#lastName,
+input#username{
     text-align: left;
+}
+
+input#firstName,
+input#lastName{
     cursor: none;
 }

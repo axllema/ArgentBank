@@ -5,7 +5,7 @@ import '../scss/style.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser, updateUser } from '../Redux/actions/authActions.jsx'; // Import des actions getUser et updateUser
 
-function EditUsernameForm({ userProfile, setEditedUserName, saveChange, setIsOpen }) {
+function EditUsernameForm({ userProfile, setEditedUserName, saveChange, setIsOpen, setMessage }) {
     const dispatch = useDispatch();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const user = useSelector(state => state.auth.user); // accéder à l'état user dans le store Redux
@@ -13,7 +13,7 @@ function EditUsernameForm({ userProfile, setEditedUserName, saveChange, setIsOpe
     const [editedUserName, setEditedUserNameLocal] = useState(user?.userName) // définit état username
     
   // appel de l'action getUser dès que le composant est monté
-  useEffect(() => {
+    useEffect(() => {
     dispatch(getUser());
 }, [dispatch]);
 
@@ -34,7 +34,9 @@ const saveChangeLocal = (event) => {
     // Mise à jour du nom d'utilisateur
     dispatch(updateUser({ userName: editedUserName }))
     // Fermeture du formulaire
-    setIsOpenLocal(false)
+    setIsOpen(false)
+    // Affichage du message de succès
+    setMessage('Pseudo changé avec succès !');
 }
 
     return (
@@ -80,12 +82,12 @@ const saveChangeLocal = (event) => {
                 </button>
 
                 <button 
-    type= "button"
-    className="cancel-button"
-    onClick={() => {
-        setIsOpen(false)    
-    }}
->
+                    type= "button"
+                    className="cancel-button"
+                    onClick={() => {
+                        setIsOpen(false)    
+                    }}
+                >
                     Cancel
                 </button>
             </div>

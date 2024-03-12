@@ -14,6 +14,7 @@ const UserHeader = () => {
     const user = useSelector(state => state.auth.user); // accéder à l'état user dans le store Redux
     const [isOpen, setIsOpen] = useState(false) // form fermé par défaut
     const [editedUserName, setEditedUserName] = useState(user?.userName) // définit état username
+    const [message, setMessage] = useState(''); // nouvel état pour le message de succès
     
      // appel de l'action getUser dès que le composant est monté
     useEffect(() => {
@@ -49,8 +50,9 @@ const UserHeader = () => {
                         }!
                     </>
                     : 'Welcome!'
-                }
+            }
             </h1>
+            {message && <p>{message}</p>}
             {!isOpen ? (
                 //* Mode édition désactivé
                 <button className="edit-button"
@@ -68,6 +70,7 @@ const UserHeader = () => {
                         setEditedUserName={setEditedUserName} 
                         saveChange={saveChange} 
                         setIsOpen={setIsOpen} // Passer setIsOpen en tant que prop
+                        setMessage={setMessage} // Passer setMessage en tant que prop
                     />
                 </div>
             )}
