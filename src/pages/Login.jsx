@@ -56,7 +56,7 @@ function Login() {
             }
         } catch {
             // en cas d'erreur lors de la connexion à l'API, affichage d'un message d'erreur
-            setErrorMessage("An error as occured.");
+            setErrorMessage("Email and/or password are wrong. Try again.");
         }
     };
 

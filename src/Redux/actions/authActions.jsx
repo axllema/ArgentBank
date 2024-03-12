@@ -15,7 +15,7 @@ export const getUser = () => async (dispatch) => {
             },
         };
 
-        // effectuer une requête GET vers l'API de profil utilisateur
+        // effectuer une requête POST vers l'API de profil utilisateur
         const response = await axios.post('http://localhost:3001/api/v1/user/profile', {}, config);
         // la méthode POST prend trois arguments :
         // l'URL à laquelle faire la requête, les données à envoyer avec la requête ("corps" de la requête),

@@ -25,17 +25,10 @@ function Header() {
         }
     }, [dispatch]);
 
-    useEffect(() => {
-        const token = localStorage.getItem("authToken");
-        if (token) {
-            dispatch(login({ token }));
-        }
-    }, [dispatch]);
-    
+
     return (
         <header>
             <nav className="main-nav">
-                <div className="main-nav-items">
                     <Link to="/" className="main-nav-logo"> 
                         <img alt="logo d'ArgentBank" src={logo} className="main-nav-logo-image"/>
                         <h1 className="sr-only">Argent Bank</h1>
@@ -45,7 +38,7 @@ function Header() {
                     <div className="main-nav-links">
                         {isAuthenticated && userProfile ? (
                     <>
-                        <Link to="/User" className="link">
+                        <Link to="/profile" className="link">
                             <img src={userIcon} alt="User Icon" className="main-nav-item-user_circle"/>
                             {userProfile.body && (userProfile.body.userName ? userProfile.body.userName : `${userProfile.body.firstName} ${userProfile.body.lastName}`)}          
                         </Link>
@@ -58,7 +51,6 @@ function Header() {
                         <Link to="/login" className="link">Sign In</Link>
                     )}
                 </div>
-            </div>
         </nav>
         </header>
     );

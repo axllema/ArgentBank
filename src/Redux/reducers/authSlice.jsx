@@ -63,13 +63,13 @@ const checkToken = () => {
         getUserFailure(state, action) {
             state.error = action.payload;
         },
-    updateUserSuccess(state, action) {
-        state.user = action.payload;
-        state.error = null;
-    },
-    updateUserFailure(state, action) {
-        state.error = action.payload;
-    },
+        updateUserSuccess(state, action) {
+            state.user.userName = action.payload.userName;
+            state.error = null;
+        },
+        updateUserFailure(state, action) {
+            state.error = action.payload;
+        },
 },
 })
 

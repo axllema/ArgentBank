@@ -1,13 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./reducers/authSlice.jsx";
-import profileReducer from "./reducers/profileSlice.jsx";
-// Importez d'autres reducers si nécessaire
 
-// // configurez le store Redux en utilisant configureStore
+// configurer le store Redux en utilisant configureStore
 const store = configureStore({
     reducer: {
         auth: authReducer,
-        user: profileReducer,
     },
 });
 
