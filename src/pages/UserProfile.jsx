@@ -8,8 +8,6 @@ import Footer from '../components/footer';
 import '../scss/pages/_userProfile.scss'
 import '../scss/style.scss'
 
-import { useSelector } from 'react-redux';
-
  // déclaration des états locaux
 function UserProfile() {
 

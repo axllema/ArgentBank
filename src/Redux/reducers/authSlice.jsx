@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-
 // vérifie si un token d'authentification est déjà présent dans le localStorage
 const checkToken = () => {
     return localStorage.getItem("authToken") || null
@@ -64,7 +63,7 @@ const checkToken = () => {
             state.error = action.payload;
         },
         updateUserSuccess(state, action) {
-            state.user.userName = action.payload;
+            state.user = action.payload;
             state.error = null;
         },
         updateUserFailure(state, action) {

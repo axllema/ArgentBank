@@ -28,6 +28,10 @@
         }
     }
 
+    .link {
+        display: flex;
+        align-items: center;
+    }
 
     &-item {
         display: flex;
@@ -48,6 +52,7 @@
 
         &-user_circle{
             width: 30px;
+            margin-right: 5px;
         }
     }
 }

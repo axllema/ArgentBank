@@ -3,6 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Header from '../components/header.jsx';
 import LoginForm from '../components/loginForm.jsx';
+// importation des dépendances nécessaires
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import Header from '../components/header.jsx';
+import LoginForm from '../components/loginForm.jsx';
 import userIcon from '../../back/designs/img/user-icon.png';
 import Footer from '../components/footer.jsx';
 import axios from 'axios';
