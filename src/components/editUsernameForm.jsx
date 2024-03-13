@@ -29,6 +29,10 @@ function EditUsernameForm({ userProfile, setEditedUserName, saveChange, setIsOpe
     setEditedUserNameLocal(user?.userName);
     }, [user]);
 
+    setTimeout(() => {
+        setMessage('');
+    }, 4000)
+
     const saveChangeLocal = (event) => {
         event.preventDefault()
         // Mise à jour du nom d'utilisateur

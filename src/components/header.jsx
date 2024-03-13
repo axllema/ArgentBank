@@ -13,6 +13,8 @@ function Header() {
     const dispatch = useDispatch();
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
     const userProfile = useSelector((state) => state.auth.user);
+    const user = useSelector((state) => state.auth.user); // accéder à l'état user dans le store Redux
+    const [displayedName, setDisplayedName] = useState('');
 
     const userLogout = () => {
         dispatch(logout())
@@ -25,6 +27,16 @@ function Header() {
         }
     }, [dispatch]);
 
+
+    useEffect(() => {
+        if (user?.body) {
+            const name = user.body?.userName ?? `${user.body?.firstName} ${user.body?.lastName}`;
+            setDisplayedName(name);
+        } else if (user) {
+            const name = user.userName ?? `${user.firstName} ${user.lastName}`;
+            setDisplayedName(name);
+        }
+    }, [user]);
 
     return (
         <header>
@@ -40,8 +52,8 @@ function Header() {
                     <>
                         <Link to="/profile" className="link">
                             <img src={userIcon} alt="User Icon" className="main-nav-item-user_circle"/>
-                            {userProfile.body && (userProfile.body.userName ? userProfile.body.userName : `${userProfile.body.firstName} ${userProfile.body.lastName}`)}          
-                        </Link>
+                            {displayedName}
+                            </Link>
 
                         <Link to="/" onClick={userLogout} className="link">
                             <img src={signOutIcon} alt="Sign Out Icon" className="main-nav-item-user_circle" />Sign Out
