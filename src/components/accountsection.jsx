@@ -5,8 +5,8 @@ import '../scss/style.scss'
 
 function AccountSection() {
     return (
-        <div>
-            <div className="account-content-wrapper">
+        <div className="account-content-wrapper">
+                <h2 className="sr-only">Accounts</h2>
                 <section className="account">
                     <div className="account-content-wrapper">
                         <h3 className="account-title">Argent Bank Checking (x8349)</h3>
@@ -38,7 +38,6 @@ function AccountSection() {
                     </div>
                 </section>
             </div>
-        </div>
 );
 }
 
