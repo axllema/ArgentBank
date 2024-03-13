@@ -16,6 +16,12 @@ const UserHeader = () => {
     const [editedUserName, setEditedUserName] = useState(user?.userName) // définit état username
     const [message, setMessage] = useState(''); // nouvel état pour le message de succès
     
+    useEffect(() => {
+        if (user) {
+            console.log(user, "user header");
+        }
+    }, [user]);
+    
      // appel de l'action getUser dès que le composant est monté
     useEffect(() => {
         dispatch(getUser());
@@ -23,11 +29,17 @@ const UserHeader = () => {
 
     // mettre à jour l'état local lorsque l'utilisateur est connecté
     useEffect(() => {
-        if (user) {
+        if (user && user.body) {
             setIsLoggedIn(true);
-            setEditedUserName(user.userName); // màj username pour userProfile
+            setEditedUserName(user.body.userName); // màj username pour userProfile
         }
     }, [user]);
+
+    useEffect(() => {
+        if (!isOpen && user && user.body) {
+            setEditedUserName(user.body.userName);
+        }
+    }, [isOpen]);
 
     const saveChange = (event) => {
         event.preventDefault()

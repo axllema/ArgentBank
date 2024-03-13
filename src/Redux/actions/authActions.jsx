@@ -53,7 +53,6 @@ export const updateUser = (user) => async (dispatch) => {
         dispatch(updateUserFailure(error.message));
     }
 };
-//
 
 export const updateUserSuccess = (user) => ({
     type: 'auth/updateUserSuccess',

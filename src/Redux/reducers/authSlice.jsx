@@ -64,7 +64,7 @@ const checkToken = () => {
             state.error = action.payload;
         },
         updateUserSuccess(state, action) {
-            state.user.userName = action.payload.userName;
+            state.user.userName = action.payload;
             state.error = null;
         },
         updateUserFailure(state, action) {
@@ -73,5 +73,5 @@ const checkToken = () => {
 },
 })
 
-export const { login, logout, getUser, getUserSuccess, getUserFailure, updateUserSuccess,  updateUserFailure } = authSlice.actions;
+export const { login, logout, getUser, getUserSuccess, getUserFailure, updateUserSuccess, updateUserFailure } = authSlice.actions;
 export default authSlice.reducer

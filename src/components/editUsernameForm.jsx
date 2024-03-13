@@ -12,32 +12,32 @@ function EditUsernameForm({ userProfile, setEditedUserName, saveChange, setIsOpe
     const [isOpen, setIsOpenLocal] = useState(false) // form fermé par défaut
     const [editedUserName, setEditedUserNameLocal] = useState(user?.userName) // définit état username
     
-  // appel de l'action getUser dès que le composant est monté
+    // appel de l'action getUser dès que le composant est monté
+        useEffect(() => {
+        dispatch(getUser());
+    }, [dispatch]);
+
+    // mettre à jour l'état local lorsque l'utilisateur est connecté
     useEffect(() => {
-    dispatch(getUser());
-}, [dispatch]);
+        if (user) {
+            setIsLoggedIn(true);
+        }
+    }, [user]);
 
-// mettre à jour l'état local lorsque l'utilisateur est connecté
-useEffect(() => {
-    if (user) {
-        setIsLoggedIn(true);
-    }
-}, [user]);
-
-// Ajoutez cet effet pour mettre à jour editedUserName chaque fois que user change
-useEffect(() => {
+    // effet pour mettre à jour editedUserName chaque fois que user change
+    useEffect(() => {
     setEditedUserNameLocal(user?.userName);
-}, [user]);
+    }, [user]);
 
-const saveChangeLocal = (event) => {
-    event.preventDefault()
-    // Mise à jour du nom d'utilisateur
-    dispatch(updateUser({ userName: editedUserName }))
-    // Fermeture du formulaire
-    setIsOpen(false)
-    // Affichage du message de succès
-    setMessage('Pseudo changé avec succès !');
-}
+    const saveChangeLocal = (event) => {
+        event.preventDefault()
+        // Mise à jour du nom d'utilisateur
+        dispatch(updateUser({ userName: editedUserName }))
+        // Fermeture du formulaire
+        setIsOpen(false)
+        // Affichage du message de succès
+        setMessage('Pseudo changé avec succès !');
+    }
 
     return (
         <form onSubmit={saveChangeLocal} className="edit_form">
