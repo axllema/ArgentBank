@@ -1,0 +1,34 @@
+// Styles pour les fonctionnalités
+.features {
+    display: flex;
+    flex-direction: column;
+}
+
+// Styles pour les fonctionnalités sur les écrans plus larges
+@media (min-width: 920px) {
+    .features {
+        flex-direction: row;
+    }
+}
+
+// Styles pour l'icône de fonctionnalité
+.feature-icon {
+    width: 100px;
+    border: 10px solid #00bc77;
+    border-radius: 50%;
+    padding: 1rem;
+}
+
+// Styles pour l'élément de fonctionnalité
+.feature-item {
+    flex: 1;
+    padding: 2.5rem;
+}
+
+// Styles pour le titre de l'élément de fonctionnalité
+.feature-item-title {
+    color: #222;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'; 
-import { Link } from "react-router-dom"
-import '../scss/pages/_userProfile.scss'
+import Button from '../components/button.jsx';
+import '../scss/components/_accountsection.scss';
 import '../scss/style.scss'
 
 function AccountSection() {
@@ -14,7 +14,7 @@ function AccountSection() {
                         <p className="account-amount-description">Available Balance</p>
                     </div>
                     <div className="account-content-wrapper cta">
-                        <button className="transaction-button">View transactions</button>
+                        <Button className="transaction-button" content="View transactions" />
                     </div>
                 </section>
                 <section className="account">
@@ -24,7 +24,7 @@ function AccountSection() {
                         <p className="account-amount-description">Available Balance</p>
                     </div>
                     <div className="account-content-wrapper cta">
-                        <button className="transaction-button">View transactions</button>
+                        <Button className="transaction-button" content="View transactions" />
                     </div>
                 </section>
                 <section className="account">
@@ -34,7 +34,7 @@ function AccountSection() {
                         <p className="account-amount-description">Current Balance</p>
                     </div>
                     <div className="account-content-wrapper cta">
-                        <button className="transaction-button">View transactions</button>
+                        <Button className="transaction-button" content="View transactions" />
                     </div>
                 </section>
             </div>

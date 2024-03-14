@@ -1,21 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Header from '../components/header.jsx';
 import LoginForm from '../components/loginForm.jsx';
-// importation des dépendances nécessaires
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import Header from '../components/header.jsx';
-import LoginForm from '../components/loginForm.jsx';
-import userIcon from '../../back/designs/img/user-icon.png';
+import userIcon from '../../back/designs/img/user-icon.webp';
 import Footer from '../components/footer.jsx';
-import axios from 'axios';
+import axios from 'axios'; // importation d'axios pour faire des requêtes HTTP
 import { login } from '../Redux/reducers/authSlice.jsx';
-
-import '../scss/style.scss';
-import '../scss/pages/_login.scss';
+import '../scss/style.scss'; 
+import '../scss/pages/_login.scss'; 
 
 // définition du composant Login
 function Login() {
@@ -65,13 +58,14 @@ function Login() {
         }
     };
 
+    // Rendu du composant
     return (
         <div>
             <Header/>
             <div className="test">
             <main className="main bg-dark">
             <section className="sign-in-content">
-                <i><img src={userIcon} className="sign-in-icon" alt="sign in icon" /></i>
+                <i><img src={userIcon} className="sign-in-icon" alt="sign in icon" width="30" height="auto"/></i>
                 <h1>Sign In</h1>
                 <LoginForm 
                     handleSubmit={handleSubmit} 
@@ -88,3 +82,7 @@ function Login() {
 }
 
 export default Login;
+
+// définit un composant Login qui gère le processus de connexion d'un utilisateur.
+ // Il utilise plusieurs hooks de React et Redux, ainsi que des composants personnalisés pour le rendu.
+ // Lorsque l'utilisateur soumet le formulaire de connexion, le composant tente de se connecter à l'API et gère les erreurs éventuelles.

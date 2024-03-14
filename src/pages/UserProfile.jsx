@@ -5,14 +5,10 @@ import UserHeader from '../components/userheader';
 import AccountSection from '../components/accountsection'; 
 // import EditUsername from '../components/editUsername.jsx'; 
 import Footer from '../components/footer';
-import '../scss/pages/_userProfile.scss'
 import '../scss/style.scss'
 
  // déclaration des états locaux
 function UserProfile() {
-
-    const user = useSelector(state => state.auth.user);
-
     return (
         <div>
             <Header/>

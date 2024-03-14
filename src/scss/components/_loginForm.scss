@@ -1,0 +1,48 @@
+// Styles pour le formulaire
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+// Styles pour le bouton de connexion
+.sign-in-button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-top: 1rem;
+    border-color: #00bc77;
+    background-color: #00bc77;
+    color: #fff;
+}
+
+// Styles pour l'option "Se souvenir de moi"
+.input-remember {
+    display: flex;
+
+    // Styles pour le label de l'option "Se souvenir de moi"
+    .label {
+        margin-left: 0.25rem;
+    }
+}
+
+// Styles pour le wrapper d'input
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+    // Styles pour le label du wrapper d'input
+    &-label {
+        font-weight: bold;
+        text-align: left;
+    }
+
+    // Styles pour l'input lui-même
+    .input {
+        padding: 5px;
+        font-size: 1.2rem;
+    }
+}

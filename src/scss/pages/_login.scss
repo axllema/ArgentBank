@@ -1,63 +1,29 @@
+// Styles pour le conteneur principal
 .main {
     display: flex;
     flex: 1;
     padding-bottom: 120px;
 }
 
+// Styles pour le fond sombre
 .bg-dark {
-background-color: #12002b;
+    background-color: #12002b;
 }
 
-form {
-    display: block;
-    margin-top: 0em;
-}
-
-.sign-in-button {
-display: block;
-width: 100%;
-padding: 8px;
-font-size: 1.1rem;
-font-weight: bold;
-text-decoration: underline;
-margin-top: 1rem;
-border-color: #00bc77;
-background-color: #00bc77;
-color: #fff;
-}
-
+// Styles pour le contenu de connexion
 .sign-in-content {
-box-sizing: border-box;
-background-color: white;
-width: 300px;
-margin: 0 auto;
-margin-top: 3rem;
-padding: 2rem;
+    box-sizing: border-box;
+    background-color: white;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+// Styles pour l'icône de connexion
 .sign-in-icon {
-width: 30px;
-}
-
-.input-remember {
-display: flex;
-
-    .label {
-        margin-left: 0.25rem;
-    }
-}
-
-.input-wrapper {
-display: flex;
-flex-direction: column;
-margin-bottom: 1rem;
-
-    &-label {
-        font-weight: bold;
-        text-align: left;
-    }
-    .input {
-        padding: 5px;
-        font-size: 1.2rem;
-    }
+    width: 30px;
 }

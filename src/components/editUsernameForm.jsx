@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../scss/pages/_userProfile.scss'
 import '../scss/style.scss'
+import Field from '../components/field.jsx';
+import Button from '../components/button.jsx';
+
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser, updateUser } from '../Redux/actions/authActions.jsx'; // Import des actions getUser et updateUser
@@ -10,8 +13,8 @@ function EditUsernameForm({ userProfile, setEditedUserName, saveChange, setIsOpe
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const user = useSelector(state => state.auth.user); // accéder à l'état user dans le store Redux
     const [isOpen, setIsOpenLocal] = useState(false) // form fermé par défaut
-    const [editedUserName, setEditedUserNameLocal] = useState(user?.userName) // définit état username
-    
+    const [editedUserName, setEditedUserNameLocal] = useState(''); // Initialisez avec une chaîne vide
+
     // appel de l'action getUser dès que le composant est monté
         useEffect(() => {
         dispatch(getUser());
@@ -21,17 +24,13 @@ function EditUsernameForm({ userProfile, setEditedUserName, saveChange, setIsOpe
     useEffect(() => {
         if (user) {
             setIsLoggedIn(true);
+            setEditedUserNameLocal(user.userName || '');
         }
-    }, [user]);
-
-    // effet pour mettre à jour editedUserName chaque fois que user change
-    useEffect(() => {
-    setEditedUserNameLocal(user?.userName);
     }, [user]);
 
     setTimeout(() => {
         setMessage('');
-    }, 4000)
+    }, 3500)
 
     const saveChangeLocal = (event) => {
         event.preventDefault()
@@ -45,55 +44,41 @@ function EditUsernameForm({ userProfile, setEditedUserName, saveChange, setIsOpe
 
     return (
         <form onSubmit={saveChangeLocal} className="edit_form">
-            <div className="input-wrapper">
-                <label htmlFor="username" className="input-wrapper-label">User name:</label>
-                <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    autoComplete="username"
-                    defaultValue={userProfile?.userName}
-                    onChange={(e) => setEditedUserNameLocal(e.target.value)}
-                />
-            </div>
-            <div className="input-wrapper">
-                <label htmlFor="firstName" className="input-wrapper-label">First name:</label> 
-                <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    autoComplete="firstName"
-                    placeholder={user.body.firstName}
-                />
-            </div>
-            <div className="input-wrapper">
-                <label htmlFor="lastName" className="input-wrapper-label">Last name:</label> 
-                <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    autoComplete="lastName"
-                    placeholder={user.body.lastName}
-                />
-            </div>
-
+        <Field 
+            className="input-wrapper-label"
+            label="User name:"
+            type="text"
+            content="username"
+            value={editedUserName}
+            onChange={(e) => setEditedUserNameLocal(e.target.value)}
+        />
+        <Field 
+            className="input-wrapper-label"
+            label="First name:"
+            type="text"
+            content="firstName"
+            placeholder={user.body ? user.body.firstName : ''}
+        />
+        <Field 
+            className="input-wrapper-label"
+            label="Last name:"
+            type="text"
+            content="lastName"
+            placeholder={user.body ? user.body.lastName : ''}
+        />
             <div className='buttons'>
-                <button
-                    type="submit"
-                    className="edit-button"
-                >
-                    Save
-                </button>
-
-                <button 
-                    type= "button"
+                <Button
+                        className="edit-button"
+                        type="submit"
+                        content="Save"
+                        onClick={saveChangeLocal}
+                    />
+                <Button 
                     className="cancel-button"
-                    onClick={() => {
-                        setIsOpen(false)    
-                    }}
-                >
-                    Cancel
-                </button>
+                    type= "button"
+                    content="Cancel"
+                    onClick={() => setIsOpen(false)}
+                />
             </div>
         </form>
     );

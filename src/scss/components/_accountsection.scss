@@ -1,0 +1,83 @@
+// styles pour le conteneur principal
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+// styles pour le compte
+.account {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    background-color: #fff;
+    width: 80%;
+    margin: 0 auto;
+    flex-direction: column;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+// styles pour le montant du compte
+.account-amount {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+// styles pour la description du montant du compte
+.account-amount-description {
+    margin: 0;
+}
+
+// alignement du texte pour le montant du compte, la description et le titre
+.account-amount,
+.account-amount-description,
+.account-title {
+    text-align: left;
+}
+
+// styles pour le titre du compte
+.account-title {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+// styles pour le wrapper du contenu du compte
+.account-content-wrapper {
+    width: 100%;
+    flex: 1;
+}
+
+// styles pour le bouton de transaction
+.transaction-button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    border-color: #00bc77;
+    background-color: #00bc77;
+    color: #fff;
+}
+
+// styles pour les écrans plus larges
+@media (min-width: 720px) {
+    .account {
+        flex-direction: row;
+    }
+
+    .account-content-wrapper.cta {
+        flex: 0;
+    }
+
+    .transaction-button {
+        width: 200px;
+    }
+}

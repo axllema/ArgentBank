@@ -1,0 +1,17 @@
+.error {
+    padding: 50px;
+
+    &_title{
+
+        color : #085339;
+        font-size: 70px;
+        font-style: italic;
+        font-weight: bold;
+
+        &_text {
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+        }
+    }
+}

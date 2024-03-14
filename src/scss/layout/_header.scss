@@ -4,12 +4,13 @@
     align-items: center;
     padding: 5px 20px;
 
+    // Styles pour tous les liens
     a {
         font-weight: bold;
         color: #2c3e50;
         text-decoration: none;
 
-        &:hover{
+        &:hover {
             text-decoration: underline;
         }
 
@@ -18,21 +19,17 @@
         }
     }
 
+    // Styles pour le logo
     &-logo {
         display: flex;
         align-items: center;
 
         &-image {
             max-width: 100%;
-            width: 200px;
         }
     }
 
-    .link {
-        display: flex;
-        align-items: center;
-    }
-
+    // Styles pour les items
     &-item {
         display: flex;
         align-items: center;
@@ -50,21 +47,16 @@
             text-decoration: underline;
         }
 
-        &-user_circle{
-            width: 30px;
+        &-user_circle {
             margin-right: 5px;
         }
     }
-}
 
-.main-nav-items{
-    display: flex;
-    flex-direction: row;
-}
-
-.main-nav-links{
-    display: flex;
-    flex-direction: row;
-    gap: 18px;
-    align-items: center;
+    // Styles pour les liens principaux
+    &-links {
+        display: flex;
+        flex-direction: row;
+        gap: 18px;
+        align-items: center;
+    }
 }
