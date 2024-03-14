@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import '../scss/pages/_userProfile.scss'
 import '../scss/style.scss'
 import Field from '../components/field.jsx';
 import Button from '../components/button.jsx';

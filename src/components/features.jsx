@@ -2,7 +2,6 @@ import React from 'react';
 import chatIcon from '../../back/designs/img/icon-chat.webp';
 import moneyIcon from '../../back/designs/img/icon-money.webp';
 import securityIcon from '../../back/designs/img/icon-security.webp';
-import '../scss/pages/_home.scss'
 import '../scss/components/_features.scss';
 import '../scss/style.scss'
 
