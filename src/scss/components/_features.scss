@@ -1,20 +1,23 @@
+@import '../utils/_variables.scss';
+@import '../utils/_mixins.scss';
+@import '../utils/_extends.scss';
+
 // Styles pour les fonctionnalités
 .features {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
 }
 
 // Styles pour les fonctionnalités sur les écrans plus larges
 @media (min-width: 920px) {
     .features {
-        flex-direction: row;
+        @include flex-row;
     }
 }
 
 // Styles pour l'icône de fonctionnalité
 .feature-icon {
     width: 100px;
-    border: 10px solid #00bc77;
+    border: 10px solid $color-green;
     border-radius: 50%;
     padding: 1rem;
 }
@@ -27,8 +30,8 @@
 
 // Styles pour le titre de l'élément de fonctionnalité
 .feature-item-title {
-    color: #222;
+    color: $color-darkgrey;
     font-size: 1.25rem;
-    font-weight: bold;
+    @include bold-text;
     margin-bottom: 0.5rem;
 }

@@ -1,9 +1,12 @@
+@import '../utils/_variables.scss';
+@import '../utils/_mixins.scss';
+@import '../utils/_extends.scss';
+
 .field-content {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
+    @include flex-column;
+    @include text-left;
 }
 
 label{
-    text-align: left;
+    @include text-left;
 }

@@ -1,3 +1,7 @@
+@import '../utils/_variables.scss';
+@import '../utils/_mixins.scss';
+@import '../utils/_extends.scss';
+
 // Styles pour le formulaire
 form {
     display: block;
@@ -10,17 +14,17 @@ form {
     width: 100%;
     padding: 8px;
     font-size: 1.1rem;
-    font-weight: bold;
+    @include bold-text;
     text-decoration: underline;
     margin-top: 1rem;
-    border-color: #00bc77;
-    background-color: #00bc77;
-    color: #fff;
+    border-color: $color-green;
+    background-color: $color-green;
+    color: $color-white;
 }
 
 // Styles pour l'option "Se souvenir de moi"
 .input-remember {
-    display: flex;
+    @include flex-row;
 
     // Styles pour le label de l'option "Se souvenir de moi"
     .label {
@@ -30,14 +34,13 @@ form {
 
 // Styles pour le wrapper d'input
 .input-wrapper {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     margin-bottom: 1rem;
 
     // Styles pour le label du wrapper d'input
     &-label {
-        font-weight: bold;
-        text-align: left;
+        @include bold-text;
+        @include text-left;
     }
 
     // Styles pour l'input lui-même

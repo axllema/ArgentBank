@@ -1,0 +1,24 @@
+// _mixins.scss
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin text-left {
+    text-align: left;
+}
+
+@mixin bold-text {
+    font-weight: bold;
+}

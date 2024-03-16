@@ -1,13 +1,17 @@
+@import '../utils/_variables.scss';
+@import '../utils/_mixins.scss';
+@import '../utils/_extends.scss';
+
 .main-nav {
-    display: flex;
+    @include flex-row;
     justify-content: space-between;
     align-items: center;
     padding: 5px 20px;
 
     // Styles pour tous les liens
     a {
-        font-weight: bold;
-        color: #2c3e50;
+        @include bold-text;
+        color: $color-navy;
         text-decoration: none;
 
         &:hover {
@@ -15,13 +19,13 @@
         }
 
         &router-link-exact-active {
-            color: #42b983;
+            color: $color-green;
         }
     }
 
     // Styles pour le logo
     &-logo {
-        display: flex;
+        @include flex-row;
         align-items: center;
 
         &-image {
@@ -31,12 +35,12 @@
 
     // Styles pour les items
     &-item {
-        display: flex;
+        @include flex-row;
         align-items: center;
         gap: 5px;
         background-color: transparent;
-        color: #2c3e50;
-        font-weight: bold;
+        color: $color-navy;
+        @include bold-text;
         border: none;
         text-decoration: none;
         margin-right: 0.5rem;
@@ -54,8 +58,7 @@
 
     // Styles pour les liens principaux
     &-links {
-        display: flex;
-        flex-direction: row;
+        @include flex-row;
         gap: 18px;
         align-items: center;
     }

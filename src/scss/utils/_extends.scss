@@ -1,0 +1,16 @@
+// _extends.scss
+%button-styles {
+    display: block;
+    padding: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-color: $color-border;
+    background-color: $color-border;
+    color: $color-white;
+}
+
+%input-styles {
+    text-align: left;
+    cursor: none;
+    background-color: $color-grey;
+}

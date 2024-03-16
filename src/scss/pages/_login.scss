@@ -1,25 +1,28 @@
+@import '../utils/_variables.scss';
+@import '../utils/_mixins.scss';
+@import '../utils/_extends.scss';
+
 // Styles pour le conteneur principal
 .main {
-    display: flex;
+    @include flex-row;
     flex: 1;
     padding-bottom: 120px;
 }
 
 // Styles pour le fond sombre
 .bg-dark {
-    background-color: #12002b;
+    background-color: $color-dark-bg;
 }
 
 // Styles pour le contenu de connexion
 .sign-in-content {
     box-sizing: border-box;
-    background-color: white;
+    background-color: $color-white;
     width: 300px;
     margin: 0 auto;
     margin-top: 3rem;
     padding: 2rem;
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     align-items: center;
 }
 

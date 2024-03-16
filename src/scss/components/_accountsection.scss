@@ -1,23 +1,25 @@
+@import '../utils/_variables.scss';
+@import '../utils/_mixins.scss';
+@import '../utils/_extends.scss';
+
 // styles pour le conteneur principal
 .container {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     align-items: center;
 }
 
 // styles pour le compte
 .account {
-    display: flex;
+    @include flex-column;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid black;
-    background-color: #fff;
+    border: 1px solid $color-black;
+    background-color: $color-white;
     width: 80%;
     margin: 0 auto;
-    flex-direction: column;
     padding: 1.5rem;
     box-sizing: border-box;
-    text-align: left;
+    @include text-left;
     margin-bottom: 2rem;
 }
 
@@ -25,19 +27,20 @@
 .account-amount {
     margin: 0;
     font-size: 2.5rem;
-    font-weight: bold;
+    @include bold-text;
 }
 
 // styles pour la description du montant du compte
 .account-amount-description {
     margin: 0;
+    @include text-left;
 }
 
 // alignement du texte pour le montant du compte, la description et le titre
 .account-amount,
 .account-amount-description,
 .account-title {
-    text-align: left;
+    @include text-left;
 }
 
 // styles pour le titre du compte
@@ -56,20 +59,15 @@
 
 // styles pour le bouton de transaction
 .transaction-button {
-    display: block;
+    @extend %button-styles;
     width: 100%;
-    padding: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
     margin-top: 1rem;
-    border-color: #00bc77;
-    background-color: #00bc77;
-    color: #fff;
 }
 
 // styles pour les écrans plus larges
 @media (min-width: 720px) {
     .account {
+        display: flex;
         flex-direction: row;
     }
 
