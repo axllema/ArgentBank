@@ -11,10 +11,6 @@ const checkToken = () => {
         isAuthenticated: false,
         user: null,
         error: null,
-        firstName: null,
-        lastName: null,
-        userName: null,
-        email: null
     };
 
     const authSlice = createSlice({

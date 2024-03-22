@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'; 
-// import { Link } from "react-router-dom"
 import Header from '../components/header.jsx';
 import UserHeader from '../components/userheader';
-import AccountSection from '../components/accountsection'; 
-// import EditUsername from '../components/editUsername.jsx'; 
+import AccountSection from '../components/accountsection';  
 import Footer from '../components/footer';
 import '../scss/style.scss'
 

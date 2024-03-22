@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Header from '../components/header.jsx';
@@ -57,6 +57,15 @@ function Login() {
             setErrorMessage("Email and/or password are wrong. Try again.");
         }
     };
+
+     // vérifie si un token est présent dans le localStorage au moment du chargement du composant.
+     // si un token est trouvé, il redirige automatiquement l'utilisateur vers la page de profil en utilisant la fonction navigate
+    useEffect(() => {
+        const token = localStorage.getItem("authToken");
+        if(token) {
+            navigate("/profile");
+        }
+    }, []);
 
     // Rendu du composant
     return (

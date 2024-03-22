@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import '../scss/style.scss'
 import Field from '../components/field.jsx';
 import Button from '../components/button.jsx';
-
-
 import { useDispatch, useSelector } from 'react-redux';
-import { getUser, updateUser } from '../Redux/actions/authActions.jsx'; // Import des actions getUser et updateUser
+// Import des actions getUser et updateUser
+import { getUser, updateUser } from '../Redux/actions/authActions.jsx';
 
 function EditUsernameForm({ userProfile, setEditedUserName, saveChange, setIsOpen, setMessage }) {
     const dispatch = useDispatch();

@@ -4,7 +4,6 @@ import Field from '../components/field.jsx';
 import Button from '../components/field.jsx';
 import '../scss/components/_loginForm.scss';
 
-
 // Définition du composant LoginForm
 // Ce composant reçoit plusieurs props : handleSubmit, errorMessage, setCredentials et credentials
 function LoginForm({ handleSubmit, errorMessage, setCredentials, credentials }) {

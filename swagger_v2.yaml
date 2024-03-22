@@ -174,7 +174,7 @@ paths:
     ## CRUD pour les transactions
 
   ## Route pour récupérer toutes les transactions de l'utilisateur pour le mois en cours
-  /transactions/current:
+  /transactions/current/{accountId}:
       get:
         tags:
         # Tag indiquant le module auquel appartient cette route
@@ -183,11 +183,16 @@ paths:
         description: Retrieve all transactions for the current user for the current month.
         parameters:
         # Paramètre de requête pour filtrer les transactions par utilisateur
-          - name: userId
-            in: query
-            description: ID of the user whose transactions to retrieve.
-            required: true
-            type: integer
+        - name: accountId
+          in: path
+          description: ID of the account to retrieve transactions for.
+          required: true
+          type: integer
+        - name: userId
+          in: query
+          description: ID of the user whose transactions to retrieve.
+          required: true
+          type: integer
         produces:
           - application/json
         responses:
@@ -292,36 +297,6 @@ paths:
                 description: "description updated"
         '400':
           description: Invalid Request
-        '404':
-          description: Transaction not found
-        '500':
-          description: Internal Server Error
-    # Route pour supprimer les détails d'une transation spécifique
-    delete:
-      tags:
-        - Transaction Module
-      summary: Delete Transaction
-      description: Delete details of a specific transaction.
-      parameters:
-      # Paramètre de chemin pour supprimer une transaction spécifique
-        - name: transactionId
-          in: path
-          description: ID of the transaction to delete
-          required: true
-          type: integer
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: Transaction details deleted.
-          schema:
-            $ref: '#/definitions/Transaction'
-          examples:
-            application/json:
-              transactionDetails:
-                    description: "" # or null
-        '204':
-          description: Transaction deleted successfully
         '404':
           description: Transaction not found
         '500':
